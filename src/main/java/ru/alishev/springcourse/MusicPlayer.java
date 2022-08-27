@@ -42,4 +42,14 @@ public class MusicPlayer {
     public void setVolume(int volume) {
         this.volume = volume;
     }
+
+    public void doMyInit() {
+        System.out.println("Doing my player initialization");
+    }
+
+    // didn't execute cause bean have scope prototype
+    public void doMyDestroy() {
+        System.out.println("Doing my player destruction");
+    }
+
 }

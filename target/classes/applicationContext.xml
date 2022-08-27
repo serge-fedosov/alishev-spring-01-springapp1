@@ -15,16 +15,20 @@
           destroy-method="doMyDestroy"
           factory-method="getClassicalMusic">
     </bean>
+
     <bean id="musicBean2"
           class="ru.alishev.springcourse.RockMusic">
     </bean>
+
     <bean id="musicBean3"
           class="ru.alishev.springcourse.RapMusic">
     </bean>
 
     <bean id="musicPlayer"
           class="ru.alishev.springcourse.MusicPlayer"
-          scope="prototype">
+          scope="prototype"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy">
         <property name="musicList">
                 <list>
                     <ref bean="musicBean1"/>
