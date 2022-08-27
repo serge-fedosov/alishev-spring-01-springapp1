@@ -9,39 +9,4 @@
 
     <context:component-scan base-package="ru.alishev.springcourse" />
     
-    <context:property-placeholder location="classpath:musicPlayer.properties"/>
-
-    <bean id="musicBean1"
-          class="ru.alishev.springcourse.ClassicalMusic"
-          init-method="doMyInit"
-          destroy-method="doMyDestroy"
-          factory-method="getClassicalMusic">
-    </bean>
-
-<!--    create with annotation @Component in class RockMusic -->
-<!--    <bean id="musicBean2"-->
-<!--          class="ru.alishev.springcourse.RockMusic">-->
-<!--    </bean>-->
-
-<!--    create with annotation @Component in class RapMusic -->
-<!--    <bean id="musicBean3"-->
-<!--          class="ru.alishev.springcourse.RapMusic">-->
-<!--    </bean>-->
-
-    <bean id="musicPlayer"
-          class="ru.alishev.springcourse.MusicPlayer"
-          scope="prototype"
-          init-method="doMyInit"
-          destroy-method="doMyDestroy">
-        <property name="musicList">
-                <list>
-                    <ref bean="musicBean1"/>
-                    <ref bean="someRockMusic"/>
-                    <ref bean="rapMusic"/>
-                </list>
-        </property>
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
-
 </beans>
